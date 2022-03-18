@@ -32,6 +32,24 @@ class Pelanggan extends CI_Controller
         }
     }
 
+    public function tukarpoint()
+    {
+        if ($this->session->userdata('akses') == '1') {
+
+            $data = [
+                'title' => "Pelanggan (Tukar Point)",
+                'toko' => "Toko Hj Evi",
+                'nama' => $this->session->userdata('nama'),
+            ];
+
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar', $data);
+            $this->load->view('admin/tukarpoint', $data);
+        } else {
+            echo "Halaman tidak ditemukan";
+        }
+    }
+
     public function tambah_pelanggan()
     {
         if ($this->session->userdata('akses') == '1') {
@@ -69,7 +87,7 @@ class Pelanggan extends CI_Controller
             redirect('pelanggan');
         } else {
             echo "Halaman tidak ditemukan";
-        } 
+        }
     }
 
     public function hapus_pelanggan()
@@ -111,4 +129,44 @@ class Pelanggan extends CI_Controller
 
         return $newKode;
     }
+
+    public function cekdataPoint()
+    {
+        header('Content-type: application/json');
+        $pelanggan = $this->input->post('id');
+
+        $toko = $this->db->get('tbl_toko')->row();
+        $search = $this->m_pelanggan->cariPoint($pelanggan);
+        $data = array(
+            'nama' => $search->nama,
+            'point' => $search->point,
+            'uang' => $toko->uang,
+            'minpoint' => $toko->minPoint
+        );
+        echo json_encode($data);
+    }
+
+    public function updatePoint()
+	{
+		header('Content-type: application/json');
+		$pelanggan = $this->input->post('id');
+		$point = $this->input->post('point');
+		$toko = $this->db->get('tbl_toko')->row();
+		$search = $this->m_pelanggan->cariPoint($pelanggan);
+
+
+		$insert = array(
+			'id_pelanggan' => $pelanggan,
+			'tukar_point' => $point,
+			'jumlah_uangkeluar' => ($point / $toko->minPoint) * $toko->uang
+		);
+
+		$data = array(
+			'point' => $search->point - $point,
+		);
+
+		if ($this->m_pelanggan->updatePoint($pelanggan, $data) && $this->db->insert('tbl_tukar_point', $insert)) {
+			echo ($point / $toko->minPoint) * $toko->uang;
+		}
+	}
 }

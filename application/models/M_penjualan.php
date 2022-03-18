@@ -59,9 +59,14 @@ class M_penjualan extends CI_Model{
 	}
 
 	//=====================Penjualan grosir================================
-	function simpan_penjualan_grosir($nofak,$total,$jml_uang,$kembalian){
+	function simpan_penjualan_grosir($nofak,$total,$jml_uang,$kembalian, $pelanggan){
 		$idadmin=$this->session->userdata('idadmin');
-		$this->db->query("INSERT INTO tbl_jual (jual_nofak,jual_total,jual_jml_uang,jual_kembalian,jual_user_id,jual_keterangan) VALUES ('$nofak','$total','$jml_uang','$kembalian','$idadmin','grosir')");
+		if($pelanggan != false){
+			$this->db->query("INSERT INTO tbl_jual (jual_nofak,jual_total,jual_jml_uang,jual_kembalian,jual_user_id,jual_keterangan, jual_member_id) VALUES ('$nofak','$total','$jml_uang','$kembalian','$idadmin','grosir', '$pelanggan')");
+		} else {
+			$this->db->query("INSERT INTO tbl_jual (jual_nofak,jual_total,jual_jml_uang,jual_kembalian,jual_user_id,jual_keterangan, jual_member_id) VALUES ('$nofak','$total','$jml_uang','$kembalian','$idadmin','grosir', NULL)");
+		}
+		// $this->db->query("INSERT INTO tbl_jual (jual_nofak,jual_total,jual_jml_uang,jual_kembalian,jual_user_id,jual_keterangan) VALUES ('$nofak','$total','$jml_uang','$kembalian','$idadmin','grosir')");
 		foreach ($this->cart->contents() as $item) {
 			$data=array(
 				'd_jual_nofak' 			=>	$nofak,

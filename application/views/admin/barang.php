@@ -124,6 +124,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Supplier</label>
+                        <select class="form-control select2" style="width: 100%;" name="suplier">
+                            <?php foreach ($sup->result_array() as $s) { ?>
+                                <option value="<?= $s['suplier_id']; ?>"><?= $s['suplier_nama']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Harga Pokok</label>
                         <input name="harpok" class="harpok form-control" type="text" placeholder="Harga Pokok">
                     </div>
@@ -172,6 +181,7 @@ foreach ($data->result_array() as $a) {
     $kat_id = $a['barang_kategori_id'];
     $sat_id = $a['barang_satuan_id'];
     $kat_nama = $a['kategori_nama'];
+    $sup_id = $a['barang_suplier_id'];
 ?>
     <div id="modalEditPelanggan<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -212,6 +222,21 @@ foreach ($data->result_array() as $a) {
                         </div>
 
                         <div class="form-group">
+                            <label>Suplier</label>
+                            <select class="form-control select2" style="width: 100%;" name="suplier">
+                                <?php foreach ($sup->result_array() as $s) {
+                                    $id_sup = $s['suplier_id'];
+                                    $nm_sup = $s['suplier_nama'];
+                                    if ($id_sup == $sup_id) {
+                                        echo "<option value='$id_sup' selected>$nm_sup</option>";
+                                    } else {
+                                        echo "<option value='$id_sup'>$nm_sup</option>";
+                                    }
+                                } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>Satuan</label>
                             <select class="form-control select2" style="width: 100%;" name="satuan">
                                 <?php foreach ($sat->result_array() as $s) {
@@ -242,10 +267,10 @@ foreach ($data->result_array() as $a) {
                             <input name="harjul_grosir" value="<?= $harjul_grosir; ?>" class="harjul form-control" type="text" placeholder="Harga Jual Grosir">
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Stok</label>
-                            <input name="stok" value="<?= $stok; ?>" class="form-control" type="number" placeholder="Stok">
-                        </div>
+                            <input name="stok" value="" class="form-control" type="number" placeholder="Stok">
+                        </div> -->
 
                         <div class="form-group">
                             <label>Minimal Stok</label>

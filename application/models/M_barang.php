@@ -10,10 +10,10 @@ class M_barang extends CI_Model
         return $hsl;
     }
 
-    public function update_barang($kobar, $barcode, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
+    public function update_barang($kobar, $barcode, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $min_stok, $suplier)
     {
         $user_id = $this->session->userdata('idadmin');
-        $hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar', barang_satuan_id='$satuan', barcode = '$barcode', barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_stok='$stok',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id' WHERE barang_id='$kobar'");
+        $hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar', barang_satuan_id='$satuan', barcode = '$barcode', barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id', barang_suplier_id='$suplier' WHERE barang_id='$kobar'");
         return $hsl;
     }
 
@@ -25,10 +25,10 @@ class M_barang extends CI_Model
         return $hsl;
     }
 
-    public function simpan_barang($kobar,$barcode, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
+    public function simpan_barang($kobar,$barcode, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok, $suplier)
     {
         $user_id = $this->session->userdata('idadmin');
-        $hsl = $this->db->query("INSERT INTO tbl_barang (barang_id, barcode, barang_nama,barang_satuan_id,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_kategori_id,barang_user_id) VALUES ('$kobar', '$barcode' ,'$nabar','$satuan','$harpok','$harjul','$harjul_grosir','$stok','$min_stok','$kat','$user_id')");
+        $hsl = $this->db->query("INSERT INTO tbl_barang (barang_id, barcode, barang_nama,barang_satuan_id,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_kategori_id,barang_user_id, barang_suplier_id) VALUES ('$kobar', '$barcode' ,'$nabar','$satuan','$harpok','$harjul','$harjul_grosir','$stok','$min_stok','$kat','$user_id', '$suplier')");
         return $hsl;
     }
 

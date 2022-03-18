@@ -31,7 +31,6 @@ class Satuan extends CI_Controller
         } else {
             echo "Halaman tidak ditemukan";
         }
-
     }
 
     public function tambah_satuan()
@@ -71,4 +70,20 @@ class Satuan extends CI_Controller
         }
     }
 
+    public function coba()
+    {
+        $this->db->where('jual_nofak', '170322000007');
+        $produk = $this->db->get('tbl_jual')->result();
+        // var_dump($produk[0]->d_jual_barang_nama);
+        // echo $produk['d_jual_barang_nama'];
+        echo $produk[0]->jual_member_id;
+
+        if (empty($produk[0]->jual_member_id)) {
+            echo "cek";
+        }
+        // foreach ($produk as $key) {
+        //     echo $key->d_jual_barang_nama . "  \n";
+        //     // var_dump($key);
+        // }
+    }
 }

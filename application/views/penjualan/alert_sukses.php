@@ -13,7 +13,7 @@
 
     <!-- Main content -->
     <section class="content">
-<h1>Ceksuskes</h1>
+
     </section>
     <!-- /.content -->
 </div>
@@ -47,18 +47,39 @@
 <script src="<?php echo base_url() . 'assets/js/bootstrap-datetimepicker.min.js' ?>"></script>
 <!-- Select2 -->
 <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
+
 <script type="text/javascript">
-    var dataMSG = '<?= $this->session->flashdata('msgBarang'); ?>';
-    console.log("Data" + dataMSG.length);
+    let dataMSG = '<?= $token; ?>';
+    let jenis = '<?= $jenis; ?>';
+    var urlCetak = '<?= base_url('cetak/struk/') . $token; ?>';
+    console.log("Data " + dataMSG);
 
     if (dataMSG.length != 0) {
-        if (dataMSG === "add") {
-            Swal.fire("Sukses", "Sukses Menambah Barang", "success");
-        } else if (dataMSG === "edit") {
-            Swal.fire("Sukses", "Sukses Edit Barang", "success");
-        } else if (dataMSG === "remove") {
-            Swal.fire("Sukses", "Sukses Hapus Barang", "success");
-        }
+        Swal.fire({
+            title: "Transaksi",
+            text: "Cetak Struk ?",
+            type: "warning",
+            showCancelButton: !0,
+        }).then(() => {
+            $.ajax({
+                url: urlCetak + dataMSG,
+                type: "post",
+                data: {
+                    id: dataMSG
+                },
+                dataType: "html",
+                success: (a) => {
+                    if (jenis == "grosir") {
+                        window.location.href = "<?= base_url('penjualan_grosir'); ?>";
+                    } else {
+                        window.location.href = "<?= base_url('penjualan'); ?>";
+                    }
+                },
+                error: (a) => {
+                    console.log(a);
+                },
+            });
+        });
         dataMSG = "";
     }
 </script>

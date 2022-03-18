@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('barang/listbarang'); ?>" class="nav-link">
+                        <a href="<?= base_url('penjualan_grosir'); ?>" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Transaksi Grosir</p>
                         </a>
@@ -44,7 +44,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= base_url('pembelian'); ?>" class="nav-link">
                     <i class="nav-icon fas fa-shopping-cart"></i>
                     <p>
                         Belanja
@@ -52,14 +52,28 @@
                 </a>
 
             </li>
-
             <li class="nav-item">
-                <a href="<?= base_url('pelanggan'); ?>" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                         Pelanggan
+                        <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Pelanggan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('pelanggan/tukarpoint'); ?>" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tukar Point</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
@@ -102,7 +116,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="<?= base_url('admin'); ?>" class="nav-link">
+                <a href="<?= base_url('laporan'); ?>" class="nav-link">
                     <i class="nav-icon fas fa-edit"></i>
                     <p>
                         Laporan

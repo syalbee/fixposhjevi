@@ -13,32 +13,118 @@
 
       <!-- Main content -->
       <section class="content">
+        <div class="container-fluid">
 
-        <!-- Default box -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Title</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-              </button>
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-tachometer-alt"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text"><a href="<?= base_url('dashboard'); ?>">Dashboard</a></span>
+                  <!-- <span class="info-box-number">1,410</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
             </div>
-          </div>
-          <div class="card-body">
-            Start creating your amazing application!
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            Footer
-          </div>
-          <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="fas fa-cash-register"></i></span>
 
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('penjualan'); ?>">Transaksi</a></span>
+                  <!-- <span class="info-box-number">410</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
+
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('pelanggan'); ?>">Pelanggan</a></span>
+                  <!-- <span class="info-box-number">13,648</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="fas fa-shopping-cart"></i></span>
+
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('pembelian'); ?>">Belanja</a></span>
+                  <!-- <span class="info-box-number">93,139</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+          </div>
+
+          <!--  -->
+
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-boxes"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text"><a href="<?= base_url('barang'); ?>">Barang</a></span>
+                  <!-- <span class="info-box-number">1,410</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="fas fa-people-arrows"></i></span>
+
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('supplier'); ?>">Supplier</a></span>
+                  <!-- <span class="info-box-number">410</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="fas fa-edit"></i></span>
+
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('laporan'); ?>">Laporan</a></span>
+                  <!-- <span class="info-box-number">13,648</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="fas fa-cog"></i></span>
+
+                <div class="info-box-content">
+                <span class="info-box-text"><a href="<?= base_url('pengaturan'); ?>">Pengaturan</a></span>
+                  <!-- <span class="info-box-number">93,139</span> -->
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
       </section>
       <!-- /.content -->
     </div>

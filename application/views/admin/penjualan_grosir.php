@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#largeModal">Cari Barang</a>
                     <hr>
-                    <form action="<?php echo base_url() . 'penjualan/add_to_cart' ?>" method="post">
+                    <form action="<?php echo base_url() . 'penjualan_grosir/add_to_cart' ?>" method="post">
                         <table>
                             <tr>
                                 <th>Barcode</th>
@@ -51,7 +51,7 @@
                             <?php $i = 1; ?>
                             <?php foreach ($this->cart->contents() as $items) : ?>
                                 <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
-                                <form action="<?= base_url('penjualan/remove'); ?>" method="POST">
+                                <form action="<?= base_url('penjualan_grosir/remove'); ?>" method="POST">
                                     <tr>
                                         <input type="hidden" name="BRGiD" value="<?= $items['rowid']; ?>">
                                         <input type="hidden" name="BRGprice" value="<?= $items['amount']; ?>">
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <form action="<?= base_url('penjualan/simpan_penjualan'); ?>" method="POST">
+            <form action="<?= base_url('penjualan_grosir/simpan_penjualan'); ?>" method="POST">
                 <table>
                     <tr>
                         <td style="width:760px;" rowspan="2"><button type="submit" class="btn btn-info btn-lg">Simpan</button></td>
@@ -113,7 +113,7 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <h3 class="modal-title" id="myModalLabel">Data Barang</h3>
+                <h3 class="modal-title" id="myModalLabel">Data Barang Grosir</h3>
                 <button class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
@@ -126,7 +126,7 @@
                             <th style="width:120px;">Kode Barang</th>
                             <th style="width:240px;">Nama Barang</th>
                             <th>Satuan</th>
-                            <th style="width:100px;">Harga (Eceran)</th>
+                            <th style="width:100px;">Harga (Grosir)</th>
                             <th>Stok</th>
                             <th style="width:100px;text-align:center;">Aksi</th>
                         </tr>
@@ -153,15 +153,15 @@
                                 <td><?php echo $id; ?></td>
                                 <td><?php echo $nm; ?></td>
                                 <td style="text-align:center;"><?= $this->db->query("SELECT satuan_nama FROM tbl_satuan WHERE satuan_id =". $satuan."")->result_array()[0]['satuan_nama']; ?></td>
-                                <td style="text-align:right;"><?php echo 'Rp ' . number_format($harjul); ?></td>
+                                <td style="text-align:right;"><?php echo 'Rp ' . number_format($harjul_grosir); ?></td>
                                 <td style="text-align:center;"><?php echo $stok; ?></td>
                                 <td style="text-align:center;">
-                                    <form action="<?php echo base_url() . 'penjualan/add_to_cart' ?>" method="post">
+                                    <form action="<?php echo base_url() . 'penjualan_grosir/add_to_cart' ?>" method="post">
                                         <input type="hidden" name="kode_brg" value="<?php echo $barcode ?>">
                                         <input type="hidden" name="nabar" value="<?php echo $nm; ?>">
                                         <input type="hidden" name="satuan" value="<?php echo $satuan; ?>">
                                         <input type="hidden" name="stok" value="<?php echo $stok; ?>">
-                                        <input type="hidden" name="harjul" value="<?php echo number_format($harjul); ?>">
+                                        <input type="hidden" name="harjul" value="<?php echo number_format($harjul_grosir); ?>">
                                         <input type="hidden" name="diskon" value="0">
                                         <input type="hidden" name="qty" value="1" required>
                                         <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-edit"></span> Pilih</button>

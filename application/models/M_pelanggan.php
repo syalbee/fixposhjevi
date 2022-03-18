@@ -28,7 +28,7 @@ class M_pelanggan extends CI_Model
         $this->db->where('id', $id);
         return $this->db->get($this->table);
     }
-    
+
     public function getPoint($id)
     {
         $this->db->select('point');
@@ -41,5 +41,18 @@ class M_pelanggan extends CI_Model
         $this->db->set('point', $data);
         $this->db->where('kode', $id);
         return $this->db->update($this->table);
+    }
+
+    public function cariPoint($id)
+    {
+        $this->db->select('nama, point');
+        $this->db->where('kode', $id);
+        return $this->db->get($this->table)->row();
+    }
+
+    public function updatePoint($id, $data)
+    {
+        $this->db->where('kode', $id);
+        return $this->db->update($this->table, $data);
     }
 }
