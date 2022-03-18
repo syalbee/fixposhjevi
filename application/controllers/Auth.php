@@ -19,14 +19,12 @@ class Auth extends CI_Controller
 
         $user = $this->db->get_where('tbl_user', ['user_username' => $username])->row_array();
 
-        // jika usernya ada
         if ($user) {
-            // password verify
             if (password_verify($password, $user['user_password'])) {
                 $data = [
                     'id' => $user['user_id'],
                     'username' => $user['user_username'],
-                    'nama' => $user['user_namanama'],
+                    'nama' => $user['user_nama'],
                     'role' => $user['user_level'] == '1' ? 'admin' : 'user',
                     'status' => 'login',
                     'masuk' => TRUE,
@@ -34,10 +32,15 @@ class Auth extends CI_Controller
                 ];
 
                 $this->session->set_userdata($data);
+
                 if ($user['user_level'] === '1') {
                     $this->session->set_userdata('akses', '1');
                     redirect('dashboard');
+                } else {
+                    $this->session->set_userdata('akses', '2');
+                    redirect('dashboard');
                 }
+
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Salah Password !</div>');
                 redirect('auth');

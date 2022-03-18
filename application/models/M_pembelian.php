@@ -22,6 +22,7 @@ class M_pembelian extends CI_Model
         }
         return true;
     }
+    
     function get_kobel()
     {
         $q = $this->db->query("SELECT MAX(RIGHT(beli_kode,6)) AS kd_max FROM tbl_beli WHERE DATE(beli_tanggal)=CURDATE()");

@@ -15,6 +15,7 @@ class Penjualan extends CI_Controller
 		$this->load->model('m_suplier');
 		$this->load->model('m_penjualan');
 		$this->load->model('m_pelanggan');
+		date_default_timezone_set('Asia/Jakarta');
 	}
 
 	public function index()
@@ -22,7 +23,7 @@ class Penjualan extends CI_Controller
 		if ($this->session->userdata('akses') == '1' || $this->session->userdata('akses') == '2') {
 			$data = [
 				'title' => "Penjualan Eceran",
-				'toko' => "Toko Hj Evi",
+				'toko' => $this->db->get('tbl_toko')->result_array()[0]['nama'],
 				'nama' => $this->session->userdata('nama'),
 				'data' => $this->m_barang->tampil_barang(),
 			];

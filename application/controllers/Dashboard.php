@@ -9,13 +9,14 @@ class Dashboard extends CI_Controller {
         if ($this->session->userdata('status') !== 'login') {
             redirect('/');
         }
+		date_default_timezone_set('Asia/Jakarta');
        
     }
 	public function index()
 	{
 		$data = [
 			'title' => "Dashboard",
-			'toko' => "Toko Hj Evi",
+			'toko' => $this->db->get('tbl_toko')->result_array()[0]['nama'],
 			'nama' => $this->session->userdata('nama')
 		];
 

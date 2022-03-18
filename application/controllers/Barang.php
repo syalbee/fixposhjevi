@@ -14,11 +14,12 @@ class Barang extends CI_Controller
         $this->load->model('m_kategori');
         $this->load->model('m_barang');
         $this->load->model('m_suplier');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()
     {
-       
+
         if ($this->session->userdata('akses') == '1') {
             $data = [
                 'title' => "Barang",

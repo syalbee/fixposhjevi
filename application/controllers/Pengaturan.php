@@ -10,6 +10,7 @@ class Pengaturan extends CI_Controller
             $url = base_url();
             redirect($url);
         };
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

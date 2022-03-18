@@ -15,6 +15,7 @@ class Penjualan_grosir extends CI_Controller
 		$this->load->model('m_suplier');
 		$this->load->model('m_penjualan');
 		$this->load->model('m_pelanggan');
+		date_default_timezone_set('Asia/Jakarta');
 	}
 
 	public function index()

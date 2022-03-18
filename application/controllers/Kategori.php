@@ -12,6 +12,7 @@ class Kategori extends CI_Controller
         };
 
         $this->load->model('m_kategori');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

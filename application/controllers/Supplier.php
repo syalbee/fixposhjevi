@@ -11,6 +11,7 @@ class Supplier extends CI_Controller
             redirect($url);
         };
         $this->load->model('m_suplier');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

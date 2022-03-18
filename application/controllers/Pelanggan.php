@@ -11,6 +11,7 @@ class Pelanggan extends CI_Controller
             redirect($url);
         };
         $this->load->model('m_pelanggan');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

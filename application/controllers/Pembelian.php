@@ -14,6 +14,7 @@ class Pembelian extends CI_Controller
         $this->load->model('m_barang');
         $this->load->model('m_suplier');
         $this->load->model('m_pembelian');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

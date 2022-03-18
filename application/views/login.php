@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url(); ?>"><b>Toko </b>Hj Evi</a>
+            <a href="<?= base_url(); ?>"><b><?= $this->db->get('tbl_toko')->result_array()[0]['nama']; ?></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

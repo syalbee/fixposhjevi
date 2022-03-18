@@ -12,6 +12,7 @@ class Satuan extends CI_Controller
         };
 
         $this->load->model('m_satuan');
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()
