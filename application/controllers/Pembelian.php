@@ -34,6 +34,7 @@ class Pembelian extends CI_Controller
             echo "Halaman tidak ditemukan";
         }
     }
+
     public function get_barang()
     {
         if ($this->session->userdata('akses') == '1') {
@@ -44,6 +45,7 @@ class Pembelian extends CI_Controller
             echo "Halaman tidak ditemukan";
         }
     }
+    
     public function add_to_cart()
     {
         if ($this->session->userdata('akses') == '1') {
@@ -71,6 +73,7 @@ class Pembelian extends CI_Controller
             echo "Halaman tidak ditemukan";
         }
     }
+
     public function remove()
     {
         if ($this->session->userdata('akses') == '1') {
@@ -84,12 +87,20 @@ class Pembelian extends CI_Controller
             echo "Halaman tidak ditemukan";
         }
     }
+
     public function simpan_pembelian()
     {
         if ($this->session->userdata('akses') == '1') {
             $nofak = $this->session->userdata('nofak');
             $tglfak = $this->session->userdata('tglfak');
             $suplier = $this->session->userdata('suplier');
+                  
+            $tglfak = date("Y-m-d", strtotime($tglfak)); 
+
+            if(empty($tglfak) || $tglfak === "" || $tglfak === NULL){
+                $tglfak = date('Y-m-d');
+            }
+
             if (!empty($nofak) && !empty($tglfak) && !empty($suplier)) {
                 $beli_kode = $this->m_pembelian->get_kobel();
                 $order_proses = $this->m_pembelian->simpan_pembelian($nofak, $tglfak, $suplier, $beli_kode);

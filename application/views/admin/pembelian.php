@@ -44,13 +44,13 @@
                             <tr>
                                 <th>Tanggal</th>
                                 <td>
-                                    <div class='input-group date' id='datepicker' style="width:200px;">
-                                        <input type='text' name="tgl" class="form-control" value="<?php echo $this->session->userdata('tglfak'); ?>" placeholder="Tanggal..." required />
-                                        <span class="input-group-addon">
-                                            <span class="fa fa-calendar"></span>
-                                        </span>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" name="tgl" value="<?php echo $this->session->userdata('tglfak'); ?>" class="form-control datetimepicker-input" data-target="#reservationdate" required />
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
                                     </div>
-                                   
+
                                 </td>
                             </tr>
                         </table>
@@ -121,9 +121,9 @@
 
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Versi</b> 1.0.0
+        <b>versi</b> 1.0.0
     </div>
-    <strong><a href="<?= base_url('dashboard'); ?>"><?=  $this->db->get('tbl_toko')->result_array()[0]['nama']; ?></a></strong>
+    <strong><a href="<?= base_url('dashboard'); ?>"><?= $this->db->get('tbl_toko')->result_array()[0]['nama']; ?></a></strong>
 </footer>
 
 <!-- Control Sidebar -->
@@ -138,17 +138,29 @@
 <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
-<script src="<?php echo base_url() . 'assets/js/jquery.price_format.min.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/js/moment.js' ?>"></script>
-<!-- <script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js') ?>"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <!-- Select2 -->
 <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="<?= base_url(); ?>assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="<?= base_url(); ?>assets/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url(); ?>assets/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="<?= base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?= base_url(); ?>assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="<?= base_url(); ?>assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="<?= base_url(); ?>assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="<?= base_url(); ?>assets/plugins/dropzone/min/dropzone.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url() . 'assets/js/jquery.price_format.min.js' ?>"></script>
+
 <script type="text/javascript">
     var dataMSG = '<?= $this->session->flashdata('msg'); ?>';
     console.log("Data" + dataMSG);
@@ -167,9 +179,9 @@
 <script type="text/javascript">
     //Date picker
     // $.datetimepicker.setLocale('id');
-    // $('#reservationdate').datetimepicker({
-    //     format: 'L'
-    // });
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
 
     $('.select2').select2()
 
@@ -178,22 +190,22 @@
         theme: 'bootstrap4'
     })
 
-    $(function() {
-        $('#datetimepicker').datetimepicker({
-            format: 'DD MMMM YYYY HH:mm',
-        });
+    // $(function() {
+    //     $('#datetimepicker').datetimepicker({
+    //         format: 'DD MMMM YYYY HH:mm',
+    //     });
 
-        $('#datepicker').datetimepicker({
-            format: 'YYYY-MM-DD',
-        });
-        $('#datepicker2').datetimepicker({
-            format: 'YYYY-MM-DD',
-        });
+    //     $('#datepicker').datetimepicker({
+    //         format: 'YYYY-MM-DD',
+    //     });
+    //     $('#datepicker2').datetimepicker({
+    //         format: 'YYYY-MM-DD',
+    //     });
 
-        $('#timepicker').datetimepicker({
-            format: 'HH:mm'
-        });
-    });
+    //     $('#timepicker').datetimepicker({
+    //         format: 'HH:mm'
+    //     });
+    // });
 </script>
 <script type="text/javascript">
     $(function() {
